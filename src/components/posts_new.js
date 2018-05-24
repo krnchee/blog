@@ -35,7 +35,12 @@ class PostsNew extends Component {
 
 
   onSubmit(values) {
-    this.props.createPost(values);
+    // props.history is created when we create a route. We created the
+    // route back in index.js
+
+    this.props.createPost(values, () => {
+      this.props.history.push('/');
+    });
   }
 
   render() {
